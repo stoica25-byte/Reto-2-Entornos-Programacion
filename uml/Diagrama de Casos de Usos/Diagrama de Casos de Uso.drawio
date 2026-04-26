@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
   <diagram name="Página-1" id="dLNu0UIQ5qPooqnkqf92">
-    <mxGraphModel dx="2377" dy="1402" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -91,7 +91,7 @@
         <mxCell id="HTp3y9WUBhQuJv8cvyXV-25" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="675" y="724" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="JJ-S8mnIzkVz1xCxmmyS-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;endArrow=open;endFill=0;" edge="1" parent="1" source="HTp3y9WUBhQuJv8cvyXV-26" target="JJ-S8mnIzkVz1xCxmmyS-1">
+        <mxCell id="JJ-S8mnIzkVz1xCxmmyS-2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;endArrow=open;endFill=0;" parent="1" source="HTp3y9WUBhQuJv8cvyXV-26" target="JJ-S8mnIzkVz1xCxmmyS-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="HTp3y9WUBhQuJv8cvyXV-26" value="Traslado Paciente" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" parent="1" vertex="1">
@@ -104,7 +104,10 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="HTp3y9WUBhQuJv8cvyXV-27" value="Traslado Paciente otra Unidad" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" parent="1" vertex="1">
-          <mxGeometry x="675" y="869" width="200" height="70" as="geometry" />
+          <mxGeometry x="675" y="851" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="PZrRCcT3bSoiUu4F19ME-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;" edge="1" parent="1" source="HTp3y9WUBhQuJv8cvyXV-28" target="PZrRCcT3bSoiUu4F19ME-1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="HTp3y9WUBhQuJv8cvyXV-28" value="Traslado Paciente otro Hospital" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" parent="1" vertex="1">
           <mxGeometry x="675" y="1019" width="200" height="70" as="geometry" />
@@ -178,7 +181,7 @@
         <mxCell id="HTp3y9WUBhQuJv8cvyXV-68" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="575" y="1682" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="HTp3y9WUBhQuJv8cvyXV-69" value="Registra Alta del Paciente Elegido" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" parent="1" vertex="1">
+        <mxCell id="HTp3y9WUBhQuJv8cvyXV-69" value="Registrar Alta por Recuperación del Paciente Elegido" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" parent="1" vertex="1">
           <mxGeometry x="660" y="1772" width="200" height="70" as="geometry" />
         </mxCell>
         <mxCell id="HTp3y9WUBhQuJv8cvyXV-70" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;endArrow=open;endFill=0;" parent="1" source="HTp3y9WUBhQuJv8cvyXV-69" target="HTp3y9WUBhQuJv8cvyXV-65" edge="1">
@@ -238,7 +241,7 @@
         <mxCell id="hjRQKELmNkjg0pDUQo2J-10" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Gestión de Asignación y Traslados&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="584.5" y="636" width="274" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="JJ-S8mnIzkVz1xCxmmyS-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;jumpStyle=none;curved=0;strokeWidth=1;dashed=1;dashPattern=8 8;endArrow=open;endFill=0;" edge="1" parent="1" source="HTp3y9WUBhQuJv8cvyXV-14" target="JJ-S8mnIzkVz1xCxmmyS-1">
+        <mxCell id="JJ-S8mnIzkVz1xCxmmyS-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;jumpStyle=none;curved=0;strokeWidth=1;dashed=1;dashPattern=8 8;endArrow=open;endFill=0;" parent="1" source="HTp3y9WUBhQuJv8cvyXV-14" target="JJ-S8mnIzkVz1xCxmmyS-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="1030" y="790" as="targetPoint" />
             <mxPoint x="560" y="700" as="sourcePoint" />
@@ -248,11 +251,17 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="JJ-S8mnIzkVz1xCxmmyS-1" value="Consultar Información Paciente Por Ingresar" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="930" y="939" width="200" height="70" as="geometry" />
+        <mxCell id="JJ-S8mnIzkVz1xCxmmyS-1" value="Consultar Información Paciente Por Ingresar" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="930" y="926" width="200" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="JJ-S8mnIzkVz1xCxmmyS-3" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="840" y="944" width="60" height="30" as="geometry" />
+        <mxCell id="JJ-S8mnIzkVz1xCxmmyS-3" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="840" y="939" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PZrRCcT3bSoiUu4F19ME-1" value="Registrar Alta por Traslado del Paciente Elegido" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="930" y="1019" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="PZrRCcT3bSoiUu4F19ME-3" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="875" y="1020" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
