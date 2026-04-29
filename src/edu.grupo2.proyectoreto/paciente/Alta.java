@@ -2,6 +2,7 @@ package edu.grupo2.proyectoreto.paciente;
 
 import edu.grupo2.proyectoreto.personal.PersonalAdministrativo;
 import edu.grupo2.proyectoreto.utilidad.Fecha;
+import edu.grupo2.proyectoreto.personal.Medico;
 
 /**
  * Representa el alta médica de un paciente correspondiente a un ingreso
@@ -16,7 +17,7 @@ import edu.grupo2.proyectoreto.utilidad.Fecha;
  * </p>
  * * @author Alex
  * 
- * @version 1.0 (28/04/2026)
+ * @version 1.1 (28/04/2026)
  *  
  */
 public class Alta {
@@ -57,26 +58,18 @@ public class Alta {
      */
     private String documentacion;
 
-    /**
+   /**
      * <p>
-     * Crea una nueva instancia de Alta con la información necesaria para el cierre
-     * del ingreso.
+     * Crea una nueva instancia de Alta vacía.
+     * La información se irá rellenando posteriormente a través de los métodos
+     * de los diferentes actores (Médico y Personal Administrativo).
      * </p>
-     * * @param tipoAlta Motivo del alta médica.
-     * 
-     * @param traslado      Objeto con detalles del traslado (puede ser null si no
-     *                      aplica).
-     * @param fechaAlta     Objeto Fecha con el día del alta.
-     * @param documentacion Texto con las notas administrativas.
-     *
      */
-    public Alta(String tipoAlta, Traslado traslado, Fecha fechaAlta, String documentacion) {
-
+    public Alta() {
         this.tipoAlta = "";
         this.documentacion = "";
         this.traslado = null;
         this.fechaAlta = null;
-
     }
 
     /**
@@ -130,7 +123,7 @@ public class Alta {
     }
 
     // Getters//
-    public Alta getTipoAlta() {
+    public String getTipoAlta() {
         return this.tipoAlta;
     }
 
@@ -148,7 +141,7 @@ public class Alta {
 
     // Setters//
 
-    public void SetTraslado(Traslado nuevoTraslado) {
+    public void setTraslado(Traslado nuevoTraslado) {
         if (nuevoTraslado == null) {
             throw new IllegalArgumentException("El traslado no puede ser nulo");
         }
