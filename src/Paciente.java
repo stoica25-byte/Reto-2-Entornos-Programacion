@@ -12,6 +12,7 @@ public class Paciente {
         this.nombre = nombre;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
+        this.expediente = new ArrayList<>();
     }
     public void generarNotaEvolucion(){
     }
