@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+// TODO: Que Wilson Revise y corrija lo que hizo Jaime
+
+/**
+ * @author Jaime
+ */
 public class Unidad {
 
     private String nombreUnidad;
