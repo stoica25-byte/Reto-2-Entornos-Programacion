@@ -59,4 +59,11 @@ public class Paciente {
     public void setExpediente(List<Ingreso> expediente) {
         this.expediente = expediente;
     }
+    public Ingreso getUltimoIngreso(){
+        if (this.expediente == null || this.expediente.isEmpty()){
+            return null; //Seguridad: si no hay ingresos, devueve nulo
+        }
+        //Devuelve el último de la lista
+        return this.expedient.get(this.expediente.size() - 1);
+    }
 }
