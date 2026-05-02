@@ -64,6 +64,6 @@ public class Paciente {
             return null; //Seguridad: si no hay ingresos, devueve nulo
         }
         //Devuelve el último de la lista
-        return this.expedient.get(this.expediente.size() - 1);
+        return this.expediente.get(this.expediente.size() - 1);
     }
 }
