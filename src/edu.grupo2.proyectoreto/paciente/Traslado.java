@@ -1,3 +1,5 @@
+// TODO: Añadir Aserciones
+
 package edu.grupo2.proyectoreto.paciente;
 
 /**

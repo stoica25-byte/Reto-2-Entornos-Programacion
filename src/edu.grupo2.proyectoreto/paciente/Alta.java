@@ -1,3 +1,5 @@
+// TODO: Añadir Aserciones
+
 package edu.grupo2.proyectoreto.paciente;
 
 import java.time.LocalDate;
@@ -11,7 +13,7 @@ import java.time.LocalDate;
  * @author Alex
  * @author Wilson
  */
-public class Alta{
+final class Alta{
     /**
      * Tipo de alta basado en el motivo del alta del paciente.
      * 

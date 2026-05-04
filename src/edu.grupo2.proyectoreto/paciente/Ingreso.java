@@ -1,6 +1,7 @@
 // TODO: Hacer constructor y su documentación.
 // TODO: Hacer getter y setter con su documentación.
 // TODO: Hacer overriding del método toString()
+// TODO: Añadir Aserciones
 
 package edu.grupo2.proyectoreto.paciente;
 
