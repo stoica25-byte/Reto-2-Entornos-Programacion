@@ -1,152 +1,158 @@
+// TODO: Añadir Aserciones
+
 package edu.grupo2.proyectoreto.paciente;
 
-import edu.grupo2.proyectoreto.personal.PersonalAdministrativo;
-import edu.grupo2.proyectoreto.utilidad.Fecha;
-import edu.grupo2.proyectoreto.personal.Medico;
+import java.time.LocalDate;
 
 /**
- * Representa el alta médica de un paciente correspondiente a un ingreso
- * específico.
- * *
- * <p>
- * El alta marca el final de la estancia de un paciente en el hospital bajo un
- * ingreso determinado.
- * Contiene la información administrativa y temporal de este evento, y puede
- * darse por
- * diferentes motivos, principalmente por recuperación o por traslado.
- * </p>
- * * @author Alex
+ * Representa el alta médica de un paciente en uno de sus ingresos.
  * 
- * @version 1.1 (28/04/2026)
- *  
+ * El alta marca el final del ciclo de vida del paciente dentro del hospital.
+ * Un alta puede darse por recuperación o traslado.
+ * 
+ * @author Alex
+ * @author Wilson
  */
-public class Alta {
-
+final class Alta{
     /**
-     * Indica el motivo o tipo de alta del paciente (ej. "Recuperación",
-     * "Traslado").
+     * Tipo de alta basado en el motivo del alta del paciente.
+     * 
+     * Los valores permitidos son "RECUPERACIÓN" o "TRASLADO".
+     * No acepta null.
      */
     private String tipoAlta;
 
     /**
-     * Contiene la información detallada del traslado a otro centro médico.
-     * *
-     * <p>
-     * Este objeto solo contendrá información si el atributo {@code tipoAlta} es
-     * "Traslado".
-     * En caso de alta por recuperación, este atributo permanecerá nulo.
-     * </p>
+     * La fecha establecida en la que el paciente sera dado de alta.
+     * 
+     * No acepta null.
+     */
+    private LocalDate fechaAlta;
+
+    /**
+     * Texto correspondiente a la documentación del alta.
+     * 
+     * No acepta cadenas llenas de espacios.
+     */
+    private String documentacion;
+
+    /**
+     * Contiene la información del traslado a otro centro médico en caso de alta por traslado.
+     * 
+     * Este objeto solo contendrá información si el alta es de tipo "TRASLADO". 
+     * En caso de alta por recuperación, será null.
      */
     private Traslado traslado;
 
     /**
-     * La fecha en la que se ha establecido que el paciente sea dado de alta.
-     * *
-     * <p>
-     * Es establecida por el personal médico tras una evaluación final exitosa.
-     * </p>
-     */
-    private Fecha fechaAlta;
-
-    /**
-     * Almacena los detalles administrativos, notas formales y el papeleo
-     * correspondiente al alta.
-     * *
-     * <p>
-     * Esta documentación es gestionada y rellenada por el Personal Administrativo.
-     * </p>
-     */
-    private String documentacion;
-
-   /**
-     * <p>
-     * Crea una nueva instancia de Alta vacía.
-     * La información se irá rellenando posteriormente a través de los métodos
-     * de los diferentes actores (Médico y Personal Administrativo).
-     * </p>
-     */
-    public Alta() {
-        this.tipoAlta = "";
-        this.documentacion = "";
-        this.traslado = null;
-        this.fechaAlta = null;
-    }
-
-    /**
-     * <p>
-     * Actualiza la fecha de alta tras una evaluación final exitosa, sirve como
-     * setter.
-     * Solo un Médico puede realizar esta acción.
-     * El tipo de alta se marcará automáticamente como "Recuperación".
-     * </p>
+     * Crea un nuevo alta de tipo "RECUPERACIÓN".
      * 
-     * @param medico
-     * @param fechaAlta
-     * @throws IllegalArgumentException si no hay un medico valido
-     * @throws IllegalArgumentException si no hay una fecha valida
+     * @param fechaAlta fecha establecida en la que el paciente sera dado de alta, no acepta null
+     * 
+     * @throws NullPointerException si al parametro se le pasa null
      */
-    public void actualizarFechaAlta(Medico medico, Fecha fechaAlta) {
-        if (medico == null) {
-            throw new IllegalArgumentException("Se requiere de un medico valido para autorizar y validar la fecha");
-        }
+    Alta(LocalDate fechaAlta) {
         if (fechaAlta == null) {
-            throw new IllegalArgumentException("La fecha no puede ser nula");
+            throw new NullPointerException("Parametro 'fechaAlta' no acepta null.");
         }
-        this.fechaAlta = fechaAlta;
-        this.tipoAlta = "Recuperación";
 
+        this.fechaAlta = fechaAlta;
+        tipoAlta = "RECUPERACIÓN";
     }
 
     /**
-     * <p>
-     * crea la documentacion para el alta de un paciente sirve como setter, es
-     * necesario un personal,
-     * administrativo valido ,que la fecha de alta no sea nula y tampoco la
-     * documentacion
-     * </p>
+     * Crea un nuevo alta de tipo "TRASLADO".
      * 
-     * @param personal
-     * @param documentacion
+     * @param fechaAlta       fecha establecida en la que el paciente sera dado de alta, no acepta null
+     * @param hospitalDestino nombre del hospital al cual se trasladara al paciente, no puede estar vacio ni ser null
+     * @param motivo          motivo del traslado, no puede estar vacío ni ser null
+     * 
+     * @throws NullPointerException     si 'fechaAlta','hospitalDestino' o 'motivo' se les pasa null
+     * @throws IllegalArgumentException si 'hospitalDestino' o 'motivo' se les pasa una cadena vacia, o
+     *                                  si 'hospitalDestino' o 'motivo' se les pasa una cadena llena de espacios
      */
-    public void documentacionAltaPaciente(PersonalAdministrativo personal, String documentacion) {
-        if (personal == null) {
-            throw new IllegalArgumentException(
-                    "Solo el Personal Administrativo puede gestionar la documentación del alta.");
+    Alta(LocalDate fechaAlta, String hospitalDestino, String motivo) {
+        if (fechaAlta == null) {
+            throw new NullPointerException("Parametro 'fechaAlta' no acepta null.");
         }
 
-        if (this.fechaAlta == null && this.traslado == null) {
-            throw new IllegalStateException(
-                    "Error: No se puede documentar un alta que no ha sido evaluada por un médico o que no es un traslado.");
+        this.fechaAlta = fechaAlta;
+        tipoAlta = "TRASLADO";
+
+        traslado = new Traslado(hospitalDestino, motivo);
+    }
+
+    /**
+     * Devuelve el tipo de alta.
+     * 
+     * @return el tipo de alta
+     */
+    String getTipoAlta() { return tipoAlta; }
+
+    /**
+     * Devuelve la fecha en la que el paciente sera dado de alta.
+     * 
+     * @return la fecha en la que el paciente sera dado de alta
+     */
+    LocalDate getFechaAlta() { 
+        return fechaAlta; 
+    }
+
+    /**
+     * Establece la fecha en la que el paciente sera dado de alta.
+     * 
+     * @param fechaAlta fecha establecida en la que el paciente sera dado de alta, no acepta null
+     * 
+     * @throws NullPointerException si al parametro se le pasa null
+     */
+    void setFechaAlta(LocalDate fechaAlta) {
+        if (fechaAlta == null) {
+            throw new NullPointerException("Parametro 'fechaAlta' no acepta null.");
+        }
+
+        this.fechaAlta = fechaAlta;
+    }
+
+    /**
+     * Devuelve la documentación del alta.
+     * 
+     * @return la documentación del alta
+     */
+    String getDocumentacion() {
+        return documentacion;
+    }
+
+    /**
+     * Establece la documentación del alta.
+     * 
+     * @param documentacion documentación del alta, no acepta cadenas llenas de espacios
+     * 
+     * @throws IllegalArgumentException si se pasa por parametro una cadena llena de espacios
+     */
+    void setDocumentacion(String documentacion) {
+        if (documentacion.isBlank()) {
+            throw new IllegalArgumentException("Parametro 'documentacion' no acepta una cadena con solo espacios.");
         }
 
         this.documentacion = documentacion;
     }
 
-    // Getters//
-    public String getTipoAlta() {
-        return this.tipoAlta;
-    }
-
-    public Traslado getTraslado() {
-        return this.traslado;
-    }
-
-    public Fecha getFechaAlta() {
-        return this.fechaAlta;
-    }
-
-    public String getDocumentacion() {
-        return this.documentacion;
-    }
-
-    // Setters//
-
-    public void setTraslado(Traslado nuevoTraslado) {
-        if (nuevoTraslado == null) {
-            throw new IllegalArgumentException("El traslado no puede ser nulo");
-        }
-
-        this.traslado = nuevoTraslado;
-        this.tipoAlta = "Traslado";
+    /**
+     * Devuelve una cadena con todos los datos del alta.
+     * 
+     * Se muestran los datos según la convención de java para los métodos toString:
+     * - NombreClase{campo1='valor1', campo2='valor2'}
+     * 
+     * @return una cadena con todos los atributos y sus valores del alta
+     */
+    @Override
+    public String toString() {
+        return String.format(
+            "Alta{tipoAlta='%s', fechaAlta=%s, documentacion='%s', traslado=%s}",
+            tipoAlta,
+            fechaAlta,
+            documentacion,
+            traslado
+        );
     }
 }
