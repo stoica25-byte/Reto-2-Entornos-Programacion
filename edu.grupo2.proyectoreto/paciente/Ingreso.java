@@ -365,7 +365,7 @@ final class Ingreso {
     /*
     * Método que permite guardar las rondas médicas dentro del atributo rondasMedicas
     */
-    void setNuevaRondaMedicaDiaria(){
+    public void setNuevaRondaMedicaDiaria(){
         this.rondasMedicas.add("Ronda médica realizada el: " + LocalDate.now());
     }
 
