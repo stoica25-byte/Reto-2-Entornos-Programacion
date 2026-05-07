@@ -15,4 +15,12 @@ public class Paciente {
         this.segundoApellido = segundoApellido;
         this.expediente = new ArrayList<>();
     }
+    /**
+    * Método que devuelve el objeto de la clase ingreso que está activo en ese momento
+    * Obligatorio para que el programa compile sin errores
+    */
+    Ingreso getExpediente(){
+        //Devuelve el último ingreso de la lista (el activo)
+        return expediente.get(expediente.size() - 1);
+    }
 }
