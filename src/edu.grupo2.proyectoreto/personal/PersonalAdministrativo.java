@@ -1,13 +1,13 @@
 package edu.grupo2.proyectoreto.personal;
 import edu.grupo2.proyectoreto.paciente.Paciente;
 import edu.grupo2.proyectoreto.paciente.Alta;
+
 /**
- *Clase que representa al personal administrativo del hospital.
+ * Clase que representa al personal administrativo del hospital.
  * Hereda de la clase base Personal y se encarga de las gestiones 
  * burocráticas, asignación de ubicaciones y documentación de altas.
  *
- * * @author Alex
- * 
+ * @author Alex
  * @version 1.0 (28/04/2026)
  */
 public class PersonalAdministrativo extends Personal {
