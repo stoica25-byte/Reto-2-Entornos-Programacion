@@ -7,7 +7,8 @@ package edu.grupo2.proyectoreto.personal;
  */
 public class Medico extends PersonalDeSalud{
     /**
-    * Poner comentarios
+    * Constructor público por defecto
+    * Llama al constructor de la clase que hereda (PersonalDeSalud)
     */
     public Medico(){
         //Llamamos al constructor portected de la clase padre (PersonalDeSalud)
