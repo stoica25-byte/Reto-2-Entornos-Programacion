@@ -1,6 +1,6 @@
-// TODO: Añadir Aserciones
-
 package edu.grupo2.proyectoreto.paciente;
+
+import java.io.Serializable;
 
 /**
  * Representa el traslado de un paciente a otro hospital.
@@ -11,7 +11,7 @@ package edu.grupo2.proyectoreto.paciente;
  * @author Jaime
  * @author Wilson
  */
-final class Traslado {
+final class Traslado implements Serializable {
     /** 
      * Nombre del hospital al cual se trasladara al paciente.
      * 
@@ -48,7 +48,8 @@ final class Traslado {
             throw new IllegalArgumentException("Parametro 'hospitalDestino' no acepta una cadena vacia.");
         }
         if(hospitalDestino.isBlank()) {
-            throw new IllegalArgumentException("Parametro 'hospitalDestino' no acepta una cadena entera de 'espacio'.");
+            throw new IllegalArgumentException
+            ("Parametro 'hospitalDestino' no acepta una cadena entera de 'espacio'.");
         }
 
         if (motivo == null) {
@@ -91,7 +92,8 @@ final class Traslado {
             throw new IllegalArgumentException("Parametro 'hospitalDestino' no acepta una cadena vacia.");
         }
         if(hospitalDestino.isBlank()) {
-            throw new IllegalArgumentException("Parametro 'hospitalDestino' no acepta una cadena entera de 'espacio'.");
+            throw new IllegalArgumentException
+            ("Parametro 'hospitalDestino' no acepta una cadena entera de 'espacio'.");
         }
         
         this.hospitalDestino = hospitalDestino;

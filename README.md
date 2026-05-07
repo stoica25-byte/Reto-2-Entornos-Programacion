@@ -10,7 +10,7 @@ Nuevo Obispo de Polanco
 ├── /documentacion          <-- Documentacion del proyecto.
 ├── /uml                    <-- Los archivos de PlantUML .
 ├── /src                    <-- El código fuente Java (clases y lógica).
-├── /datos_sistema          <-- Ficheros de persistencia (camas.txt, etc.).
+├── /datos                  <-- Ficheros de persistencia (pacientes.txt, etc.).
 │
 ├── .gitignore              <-- Archivos excluidos del repositorio.
 └── README.md               <-- Manual e información del grupo.

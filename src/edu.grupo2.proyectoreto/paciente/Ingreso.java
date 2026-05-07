@@ -1,11 +1,12 @@
-// TODO: Añadir Aserciones
-
 package edu.grupo2.proyectoreto.paciente;
 
+import edu.grupo2.proyectoreto.utilidad.ConstantesHospital;
+import edu.grupo2.proyectoreto.unidad.*;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Representa los momentos en los que un paciente estubo ingresado en el hospital.
@@ -15,7 +16,7 @@ import java.util.Map;
  * 
  * @author Wilson
  */
-final class Ingreso {
+final class Ingreso implements Serializable {
     /**
      * Estado del ingreso del paciente.
      * 
@@ -97,57 +98,19 @@ final class Ingreso {
     private String especialidad;
 
     /**
-     * Lista de las enfermedades mentales validas.
+     * Unidad en la que el paceinte esta vinculado/asignado en este ingreso
      */
-    private final static List<String> ENFERMEDADES_MENTALES_VALIDAS = List.of(
-        "Esquizofrenia", 
-        "TDAH", 
-        "Trastorno bipolar", 
-        "Trastorno obsesivo compulsivo", 
-        "Trastorno Psicótico", 
-        "Trastorno antisocial"
-    );
+    private Unidad unidadVinculada;
 
     /**
-     * Lista de los tratamientos validos.
+     * Habitación en la que el paceinte esta vinculado/asignado en este ingreso
      */
-    private final static List<String> TRATAMIENTOS_VALIDAS = List.of(
-        "Analgésicos", 
-        "Antiinflamatorios", 
-        "Antibióticos", 
-        "Sueros", 
-        "Antidiarreicos", 
-        "Antipsicóticos", 
-        "Terapia conductual", 
-        "Estabilizadores del ánimo", 
-        "Antidepresivos", 
-        "Medicación anticonvulsiva"
-    );
+    private Habitacion habitacionVinculada;
 
     /**
-     * Lista de las especialidades validas, ordenados de más importante a más general.
+     * Cama en la que el paceinte esta vinculado/asignado en este ingreso
      */
-    private final static List<String> ESPECIALIDADES_VALIDAS = List.of(
-        "Cuidados Intensivos",
-        "Neurología",
-        "Traumatología",
-        "Rehabilitación",
-        "Psiquiatría",
-        "Medicina General"
-    );
-
-    /**
-     * Lista de cada enfermedad mental y discapacidad a que especialidad está asociada.
-     */
-    private static final Map<String, String> ESPECIALIDAD_POR_CONDICION = Map.ofEntries(
-        // Enfermedades mentales
-        Map.entry("Esquizofrenia",                 "Psiquiatría"),
-        Map.entry("TDAH",                          "Psiquiatría"),
-        Map.entry("Trastorno bipolar",             "Psiquiatría"),
-        Map.entry("Trastorno obsesivo compulsivo", "Psiquiatría"),
-        Map.entry("Trastorno Psicótico",           "Psiquiatría"),
-        Map.entry("Trastorno antisocial",          "Psiquiatría")
-    );
+    private Cama camaVinculada;
 
     /**
      * Crea un nuevo ingreso con la información referente al estado del paciente en este ingreso especificada
@@ -172,7 +135,7 @@ final class Ingreso {
 
         // Se comprueba que cada valor de la lista 'enfermedadesMentales' tenga una cadena valida
         for (String enfermedadMental : enfermedadesMentales) {
-            if (!ENFERMEDADES_MENTALES_VALIDAS.contains(enfermedadMental)) {
+            if (!ConstantesHospital.ENFERMEDADES_MENTALES_VALIDAS.contains(enfermedadMental)) {
                 throw new IllegalArgumentException
                 ("Parametro 'enfermedadesMentales' se le paso una enfermedad no valida.");
             }
@@ -214,7 +177,7 @@ final class Ingreso {
 
         // Añadimos a la lista de especialidades una especialidad por enfermedad, sin repetirlas
         for (String enfermedad : enfermedadesMentales) {
-            String especialidad = ESPECIALIDAD_POR_CONDICION.get(enfermedad);
+            String especialidad = ConstantesHospital.ESPECIALIDAD_POR_CONDICION.get(enfermedad);
 
             // Se comprueba que la especialida relacioanda a está enfermedad no se haya guardado antes
             if (!especialidadesPaciente.contains(especialidad)) {
@@ -229,7 +192,7 @@ final class Ingreso {
 
         // Devolvemos la especialidad más importante según ESPECIALIDADES_VALIDAS
         // Cómo la lista ESPECIALIDADES_VALIDAS ya está ordenada, encontrara primero la más importante
-        for (String especialidadMasImportante : ESPECIALIDADES_VALIDAS) {
+        for (String especialidadMasImportante : ConstantesHospital.ESPECIALIDADES_VALIDAS) {
             if (especialidadesPaciente.contains(especialidadMasImportante)) {
                 return especialidadMasImportante;
             }
@@ -293,7 +256,7 @@ final class Ingreso {
     void setEnfermedadesMentales(List<String> enfermedadesMentales) {
         // Se comprueba que cada valor de la lista 'enfermedadesMentales' tenga una cadena valida
         for (String enfermedadMental : enfermedadesMentales) {
-            if (!ENFERMEDADES_MENTALES_VALIDAS.contains(enfermedadMental)) {
+            if (!ConstantesHospital.ENFERMEDADES_MENTALES_VALIDAS.contains(enfermedadMental)) {
                 throw new IllegalArgumentException
                 ("Parametro 'enfermedadesMentales' se le paso una enfermedad no valida.");
             }
@@ -348,7 +311,7 @@ final class Ingreso {
      */
     void setTratamientos(List<String> tratamientos) {
         for (String tratamiento : tratamientos) {
-            if (!TRATAMIENTOS_VALIDAS.contains(tratamiento)) {
+            if (!ConstantesHospital.TRATAMIENTOS_VALIDOS.contains(tratamiento)) {
                 throw new IllegalArgumentException(
                     "Parametro 'tratamientos' se le paso un tratamiento no valido.");
             }
@@ -373,6 +336,33 @@ final class Ingreso {
      */
     String getEspecialidad() {
         return especialidad;
+    }
+
+    /**
+     * Devuelve la unidad en la que el paciente esta vinculado/asignado en este ingreso.
+     * 
+     * @return la unidad en la que el paciente esta vinculado/asignado en este ingreso
+     */
+    Unidad getUnidadVinculada() {
+        return unidadVinculada;
+    }
+
+    /**
+     * Devuelve la habitación en la que el paciente esta vinculado/asignado en este ingreso.
+     * 
+     * @return la habitación en la que el paciente esta vinculado/asignado en este ingreso
+     */
+    Habitacion geHabitacionVinculada() {
+        return habitacionVinculada;
+    }
+
+    /**
+     * Devuelve la cama en la que el paciente esta vinculado/asignado en este ingreso.
+     * 
+     * @return la cama en la que el paciente esta vinculado/asignado en este ingreso
+     */
+    Cama getCamaVinculada() {
+        return camaVinculada;
     }
 
     /**
