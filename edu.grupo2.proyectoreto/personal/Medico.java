@@ -9,7 +9,7 @@ public class Medico extends PersonalDeSalud{
     /**
     * Constructor público por defecto (+)
     * Llama al constructor de la superclase PersonalDeSalud para inicializar
-    * los atributos heredados (ESPECIFICAR AÚN)
+    * los atributos heredados (nombre y apellidos)
     */
     public Medico(){
         //Llamamos al constructor portected de la clase padre (PersonalDeSalud)
@@ -26,7 +26,8 @@ public class Medico extends PersonalDeSalud{
     @override
     public String toString(){
         return String.format(
-            "Medico{nombreMedico='%s', especialidadMedica='%s'}",
+            "Medico{nombre='%s', primerApellido='%s' " +
+            "segundoApellido=%s}",
             nombreMedico,
             especialidadMedica
         );
