@@ -9,4 +9,12 @@ public abstract class PersonalDeSalud extends Personal{
     protected PersonalDeSalud(){
         super(); //Llama al cosntructor de la clase padre (Personal)
     }
+    /**
+    * Método para que el personal de salud realice la ronda médica sobre un pacienteç
+    * Utiliza una cadena de llamadas en las que desde la clase PersonalDeSalud se puede
+    * acceder al método de rondasMedicas de la clase Ingreso
+    */
+    void registrarRonda(Paciente objetoPaciente){
+        objetoPaciente.getExpediente().setNuevaRondaMedicaDiaria();
+    }
 }
