@@ -366,6 +366,15 @@ final class Ingreso implements Serializable {
     }
 
     /**
+     * Devuelve la lista de ingresos del paciente.
+     * 
+     * @return la lista de ingresos del paciente
+     */
+    List<Ingreso> getExpediente() {
+        return expediente;
+    }
+
+    /**
      * Devuelve una cadena con todos los datos del ingreso.
      * 
      * Se muestran los datos según la convención de java para los métodos toString:

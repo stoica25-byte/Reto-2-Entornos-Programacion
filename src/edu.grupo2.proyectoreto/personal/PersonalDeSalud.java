@@ -1,3 +1,5 @@
+package edu.grupo2.proyectoreto.personal;
+
 import edu.grupo2.proyectoreto.personal.Personal;
 
 /**
