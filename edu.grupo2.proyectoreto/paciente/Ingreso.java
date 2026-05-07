@@ -149,6 +149,11 @@ final class Ingreso {
         Map.entry("Trastorno antisocial",          "Psiquiatría")
     );
 
+    /*
+    * Atributo para almacenar las rondas médicas
+    */
+    private List<String> rondasMedicas = new ArrayList<>();
+
     /**
      * Crea un nuevo ingreso con la información referente al estado del paciente en este ingreso especificada
      * por parametro.
@@ -355,6 +360,13 @@ final class Ingreso {
         }
 
         this.tratamientos = tratamientos;
+    }
+
+    /*
+    * Método que permite guardar las rondas médicas dentro del atributo rondasMedicas
+    */
+    void setNuevaRondaMedicaDiaria(){
+        this.rondasMedicas.add("Ronda médica realizada el: " + LocalDate.now());
     }
 
     /**
