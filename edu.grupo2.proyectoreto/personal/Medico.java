@@ -13,7 +13,7 @@ public class Medico extends PersonalDeSalud{
     */
     public Medico(){
         //Llamamos al constructor portected de la clase padre (PersonalDeSalud)
-        super();
+        super(nombre, primerApellido, segundoApellido);
     }
     /**
     * Devuelve una cadena con los datos del médico
@@ -22,14 +22,20 @@ public class Medico extends PersonalDeSalud{
     * - NombreClase{ campo1='valor1', campo2='valor2'}
     *
     * @return una cadena con todos los atributos y sus valores
+    *
+    * @param nombre  nombre del epleado, no acepta null ni cadena llena de espacios
+    * @param apellido  apellido del empleado, no acepta null ni cadena llena de espacios
+    *
+    * @throws NullPointerException  si 'nombre' o 'apellido' se les pasa null
+    * @throws IllegalArgumentException  si 'nombre' o 'apellido' se les pasa una cadena llena de espacios
     */
     @override
     public String toString(){
         return String.format(
-            "Medico{nombre='%s', primerApellido='%s' " +
-            "segundoApellido=%s}",
-            nombreMedico,
-            especialidadMedica
+            "Medico{nombre='%s', primerApellido='%s', segundoApellido=%s}",
+            getNombre(),
+            getPrimerApellido(),
+            getSegundoApellido()
         );
     }
 }
