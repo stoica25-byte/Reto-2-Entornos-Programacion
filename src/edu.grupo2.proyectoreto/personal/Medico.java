@@ -16,38 +16,6 @@ public class Medico extends PersonalDeSalud{
         super(nombre, primerApellido, segundoApellido);
     }
     /**
-     * Asigna una cama específica a un paciente durante su ingreso.
-     */
-    public void asignarCamaPaciente(Paciente paciente, Cama cama) {
-        // Aquí iría la lógica para buscar el ingreso activo y asignarle la cama
-    }
-    /**
-     * Realiza la evaluación final y emite el alta médica del paciente.
-     * Solo puede realizarse si el paciente tiene un ingreso activo y 
-     * fue marcado como 'aptoEvaluacionFinal' en la ronda médica.
-     */
-    public void darAltaMedicaPaciente(Paciente paciente, String motivoAlta) {
-        List<Ingreso> expediente = paciente.getExpediente();
-        Ingreso ingresoActivo = null;
-
-        for (Ingreso ingreso : expediente) {
-            if (ingreso.isActivo()) {
-                ingresoActivo = ingreso;
-                break;
-            }
-        }
-        if (ingresoActivo == null) {
-            throw new IllegalStateException("El paciente no tiene un ingreso activo.");
-        }
-
-        // Crea el objeto Alta y lo guarda en el ingreso (El Administrativo lo documentará después)
-        Alta nuevaAlta = new Alta(LocalDate.now(), motivoAlta, this);
-        ingresoActivo.setAlta(nuevaAlta);
-        
-        // Opcional: Marcar el ingreso como inactivo al dar el alta
-        // ingresoActivo.setActivo(false);
-    }
-    /**
     * Devuelve una cadena con los datos del médico
     *
     * Se muestran los datos según la convención de java para los métodos toString:

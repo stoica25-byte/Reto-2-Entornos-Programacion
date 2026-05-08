@@ -6,8 +6,8 @@ package edu.grupo2.proyectoreto.personal;
  */
 public abstract class PersonalDeSalud extends Personal{
     //Visibilidad protected para que solo las clases hijas lo usen
-    protected PersonalDeSalud(){
-        super(); //Llama al cosntructor de la clase padre (Personal)
+    protected PersonalDeSalud(String nombre, String apellido){
+        super(nombre,apellido); //Llama al cosntructor de la clase padre (Personal)
     }
     /**
     * Método para que el personal de salud realice la ronda médica sobre un pacienteç
