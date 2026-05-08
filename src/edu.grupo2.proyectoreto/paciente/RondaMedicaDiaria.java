@@ -1,12 +1,10 @@
 package edu.grupo2.proyectoreto.paciente;
-
 /**
  * Clase que representa el registro de una ronda médica diaria realizada a un paciente.
- * Durante estas rondas, el personal evalúa la evolución del paciente y ajusta sus tratamientos
+ * * Durante estas rondas, el personal evalúa la evolución del paciente y ajusta sus tratamientos
  * Según las reglas del sistema, solo puede existir una ronda médica por paciente al día 
  * y solo se puede realizar si el paciente tiene su último ingreso activo
- * 
- * @author Grupo 2
+ * * @author Grupo 2
  */
 public class RondaMedicaDiaria {
 

@@ -2,107 +2,68 @@ package edu.grupo2.proyectoreto.personal;
 
 /**
  * Clase abstracta que representa a cualquier empleado del hospital.
+ * Sirve como clase base (superclase) para los diferentes roles específicos
+ * como Médico, Personal de Enfermería o Personal Administrativo,
+ * centralizando los datos comunes a todos ellos.
+ * * @author Alex
  * 
- * Sirve como clase base (superclase) para los diferentes roles como Médico, Personal de Enfermería 
- * o Personal Administrativo, centrando los datos que comparten todo el personal.
- * 
- * @author Alex
+ * @version 1.0 (28/04/2026)
  */
 
 public abstract class Personal {
     /**
-     * El nombre del empleado.
-     * 
-     * No acepta null.
-     * No acepta cadenas llenas de espacios.
+     * El nombre del empleado
      */
     private String nombre;
+    /**
+     * El primer apellido del empleado
+     */
+    private String primerApellido;
+    /**
+     * El segundo apellido del empleado
+     */
+    private String segundoApellido;
 
     /**
-     * El apellido del empleado.
-     * 
-     * No acepta null.
-     * No acepta cadenas llenas de espacios.
+     * <p>
+     * Constructor por defecto sin parametros para la clase padre, visibilidad
+     * protegida(#),
+     * Inicializa los atributos del personal con cadenas vacias en vez de null,
+     * diseñado para ser
+     * invocado por las clases hijas: PersonalAdministrativo, de enfermeria , Medico
+     * etc...
      */
-    private String apellido;
-
-    /**
-     * Crea un paciente con su nombre y apellido.
-     * 
-     * @param nombre   nombre del empleado, no acepta null ni cadena llena de espacios
-     * @param apellido apellido del empleado, no acepta null ni cadena llena de espacios
-     * 
-     * @throws NullPointerException     si 'nombre' o 'apellido' se les pasa null
-     * @throws IllegalArgumentException si 'nombre' o 'apellido' se les pasa una cadena llena de espacios
-     */
-    protected Personal(String nombre, String apellido) {
-        // Comprueba que el nombre se rellene y no sea una cadena llena de espacios.
-        if (nombre == null) {
-            throw new NullPointerException("Parametro 'nombre' no acepta null.");
-        }
-        if (nombre.isBlank()) {
-            throw new IllegalArgumentException("Parametro 'nombre' no acepta una cadena de solo espacios.");
-        }
-
-        // Comprueba que el apellido se rellene y no sea una cadena llena de espacios.
-        if (apellido == null) {
-            throw new NullPointerException("Parametro 'apellido' no acepta null.");
-        }
-        if (apellido.isBlank()) {
-            throw new IllegalArgumentException("Parametro 'apellido' no acepta una cadena de solo espacios.");
-        }
-
-        this.nombre = nombre;
-        this.apellido = apellido;
+    protected Personal() {
+        this.nombre = "";
+        this.primerApellido = "";
+        this.segundoApellido = "";
     }
 
-    /**
-     * Devuelve el nombre del empleado.
-     * 
-     * @return el nombre del empleado
-     */
+    // --- GETTERS Y SETTERS ---
+    // (Añádelos si tu equipo ha acordado que las clases hijas
+    // necesiten lee    r o modificar estos datos).
+
     public String getNombre() {
         return nombre;
     }
 
-    /**
-     * Esteblece un nuevo nombre para el empleado.
-     * 
-     * @param nombre nuevo nombre para el empleado, no acepta null ni cadenas llenas de espacios
-     * 
-     * @throws NullPointerException     si por parametro se pasa null
-     * @throws IllegalArgumentException si por parametro se pasa una cadena llena de espacios
-     */
     public void setNombre(String nombre) {
-        // Comprueba que el nombre se rellene y no sea una cadena llena de espacios.
-        if (nombre == null) {
-            throw new NullPointerException("Parametro 'nombre' no acepta null.");
-        }
-        if (nombre.isBlank()) {
-            throw new IllegalArgumentException("Parametro 'nombre' no acepta una cadena de solo espacios.");
-        }
-
         this.nombre = nombre;
     }
 
-    /**
-     * Devuelve el apellido del empleado.
-     * 
-     * @return el apellido del empleado
-     */
-    public String getapellido() {
+    public String getPrimerApellido() {
         return primerApellido;
     }
 
-    /**
-     * Esteblece un nuevo apellido para el empleado.
-     * 
-     * @param apellido nuevo apellido para el empleado, no acepta null ni cadenas llenas de espacios
-     * 
-     * @throws NullPointerException     si por parametro se pasa null
-     * @throws IllegalArgumentException si por parametro se pasa una cadena llena de espacios
-     */
-    public void setapellido(String primerApellido) {
+    public void setPrimerApellido(String primerApellido) {
         this.primerApellido = primerApellido;
+    }
+
+    public String getSegundoApellido() {
+        return segundoApellido;
+    }
+
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
     }
 }

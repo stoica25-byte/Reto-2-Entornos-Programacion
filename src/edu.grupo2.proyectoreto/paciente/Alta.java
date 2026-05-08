@@ -1,6 +1,7 @@
+// TODO: Añadir Aserciones
+
 package edu.grupo2.proyectoreto.paciente;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -12,7 +13,7 @@ import java.time.LocalDate;
  * @author Alex
  * @author Wilson
  */
-final class Alta implements Serializable {
+final class Alta{
     /**
      * Tipo de alta basado en el motivo del alta del paciente.
      * 

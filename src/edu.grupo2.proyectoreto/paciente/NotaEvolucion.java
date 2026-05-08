@@ -1,6 +1,7 @@
+// TODO: Añadir Aserciones
+
 package edu.grupo2.proyectoreto.paciente;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -9,7 +10,7 @@ import java.time.LocalDate;
  * @author Jaime
  * @author Wilson
  */
-final class NotaEvolucion implements Serializable {
+final class NotaEvolucion {
 
     /**
      * Fecha en la que se escibio la nota de evolución.
@@ -99,21 +100,12 @@ final class NotaEvolucion implements Serializable {
         }
 
         if(observacion.isBlank()) {
-            throw new IllegalArgumentException
-            ("Parametro 'observacion' no acepta una cadena llena de espacios");
+            throw new IllegalArgumentException("Parametro 'observacion' no acepta una cadena llena de espacios");
         }
 
         this.observacion = observacion;
     }
 
-    /**
-     * Devuelve una cadena con todos los datos de la nota de evolución.
-     * 
-     * Se muestran los datos según la convención de java para los métodos toString:
-     * - NombreClase{campo1='valor1', campo2='valor2'}
-     * 
-     * @return una cadena con todos los atributos y sus valores
-     */
     @Override
     public String toString() {
         return String.format(
