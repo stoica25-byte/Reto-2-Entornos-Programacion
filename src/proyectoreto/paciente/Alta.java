@@ -1,6 +1,6 @@
 // TODO: Añadir Aserciones
 
-package edu.grupo2.proyectoreto.paciente;
+package proyectoreto.paciente;
 
 import java.time.LocalDate;
 
@@ -13,7 +13,7 @@ import java.time.LocalDate;
  * @author Alex
  * @author Wilson
  */
-final class Alta{
+final class Alta {
     /**
      * Tipo de alta basado en el motivo del alta del paciente.
      * 
@@ -37,9 +37,10 @@ final class Alta{
     private String documentacion;
 
     /**
-     * Contiene la información del traslado a otro centro médico en caso de alta por traslado.
+     * Contiene la información del traslado a otro centro médico en caso de alta por
+     * traslado.
      * 
-     * Este objeto solo contendrá información si el alta es de tipo "TRASLADO". 
+     * Este objeto solo contendrá información si el alta es de tipo "TRASLADO".
      * En caso de alta por recuperación, será null.
      */
     private Traslado traslado;
@@ -47,7 +48,8 @@ final class Alta{
     /**
      * Crea un nuevo alta de tipo "RECUPERACIÓN".
      * 
-     * @param fechaAlta fecha establecida en la que el paciente sera dado de alta, no acepta null
+     * @param fechaAlta fecha establecida en la que el paciente sera dado de alta,
+     *                  no acepta null
      * 
      * @throws NullPointerException si al parametro se le pasa null
      */
@@ -63,13 +65,18 @@ final class Alta{
     /**
      * Crea un nuevo alta de tipo "TRASLADO".
      * 
-     * @param fechaAlta       fecha establecida en la que el paciente sera dado de alta, no acepta null
-     * @param hospitalDestino nombre del hospital al cual se trasladara al paciente, no puede estar vacio ni ser null
+     * @param fechaAlta       fecha establecida en la que el paciente sera dado de
+     *                        alta, no acepta null
+     * @param hospitalDestino nombre del hospital al cual se trasladara al paciente,
+     *                        no puede estar vacio ni ser null
      * @param motivo          motivo del traslado, no puede estar vacío ni ser null
      * 
-     * @throws NullPointerException     si 'fechaAlta','hospitalDestino' o 'motivo' se les pasa null
-     * @throws IllegalArgumentException si 'hospitalDestino' o 'motivo' se les pasa una cadena vacia, o
-     *                                  si 'hospitalDestino' o 'motivo' se les pasa una cadena llena de espacios
+     * @throws NullPointerException     si 'fechaAlta','hospitalDestino' o 'motivo'
+     *                                  se les pasa null
+     * @throws IllegalArgumentException si 'hospitalDestino' o 'motivo' se les pasa
+     *                                  una cadena vacia, o
+     *                                  si 'hospitalDestino' o 'motivo' se les pasa
+     *                                  una cadena llena de espacios
      */
     Alta(LocalDate fechaAlta, String hospitalDestino, String motivo) {
         if (fechaAlta == null) {
@@ -87,21 +94,24 @@ final class Alta{
      * 
      * @return el tipo de alta
      */
-    String getTipoAlta() { return tipoAlta; }
+    String getTipoAlta() {
+        return tipoAlta;
+    }
 
     /**
      * Devuelve la fecha en la que el paciente sera dado de alta.
      * 
      * @return la fecha en la que el paciente sera dado de alta
      */
-    LocalDate getFechaAlta() { 
-        return fechaAlta; 
+    LocalDate getFechaAlta() {
+        return fechaAlta;
     }
 
     /**
      * Establece la fecha en la que el paciente sera dado de alta.
      * 
-     * @param fechaAlta fecha establecida en la que el paciente sera dado de alta, no acepta null
+     * @param fechaAlta fecha establecida en la que el paciente sera dado de alta,
+     *                  no acepta null
      * 
      * @throws NullPointerException si al parametro se le pasa null
      */
@@ -125,9 +135,11 @@ final class Alta{
     /**
      * Establece la documentación del alta.
      * 
-     * @param documentacion documentación del alta, no acepta cadenas llenas de espacios
+     * @param documentacion documentación del alta, no acepta cadenas llenas de
+     *                      espacios
      * 
-     * @throws IllegalArgumentException si se pasa por parametro una cadena llena de espacios
+     * @throws IllegalArgumentException si se pasa por parametro una cadena llena de
+     *                                  espacios
      */
     void setDocumentacion(String documentacion) {
         if (documentacion.isBlank()) {
@@ -148,11 +160,10 @@ final class Alta{
     @Override
     public String toString() {
         return String.format(
-            "Alta{tipoAlta='%s', fechaAlta=%s, documentacion='%s', traslado=%s}",
-            tipoAlta,
-            fechaAlta,
-            documentacion,
-            traslado
-        );
+                "Alta{tipoAlta='%s', fechaAlta=%s, documentacion='%s', traslado=%s}",
+                tipoAlta,
+                fechaAlta,
+                documentacion,
+                traslado);
     }
 }

@@ -1,6 +1,6 @@
 // TODO: Añadir Aserciones
 
-package edu.grupo2.proyectoreto.paciente;
+package proyectoreto.paciente;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,9 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Representa los momentos en los que un paciente estubo ingresado en el hospital.
+ * Representa los momentos en los que un paciente estubo ingresado en el
+ * hospital.
  * 
- * Un paciente puede tener varios ingresos, si su úlitmo ingreso está activo, es por que ese
+ * Un paciente puede tener varios ingresos, si su úlitmo ingreso está activo, es
+ * por que ese
  * paciente se encuentra ingresado dentro del hospital actualmente.
  * 
  * @author Wilson
@@ -21,12 +23,16 @@ final class Ingreso {
      * 
      * Solo un ingreso puede ser true, y debe ser el más reciente.
      * 
-     * true marca que el último ingreso esta activo, es decir, que ese ingreso referencia
-     * al presente, significando que el paciente sigue ingresado dentro del hospital en la
+     * true marca que el último ingreso esta activo, es decir, que ese ingreso
+     * referencia
+     * al presente, significando que el paciente sigue ingresado dentro del hospital
+     * en la
      * actualidad.
      * 
-     * false marca que el ingreso esta inactivo. Si el último ingreso de un paciente está 
-     * inactivo, significa que el paciente del ingreso no se encuenta ingresado actualmente en
+     * false marca que el ingreso esta inactivo. Si el último ingreso de un paciente
+     * está
+     * inactivo, significa que el paciente del ingreso no se encuenta ingresado
+     * actualmente en
      * el hospital.
      */
     private boolean activo;
@@ -41,12 +47,12 @@ final class Ingreso {
     /**
      * Enfermedades mentales del paciente en este ingreso.
      * 
-     * Los valores permitidos son: 
-     * "Esquizofrenia", 
-     * "TDAH", 
-     * "Trastorno bipolar", 
-     * "Trastorno obsesivo compulsivo", 
-     * "Trastorno Psicótico", 
+     * Los valores permitidos son:
+     * "Esquizofrenia",
+     * "TDAH",
+     * "Trastorno bipolar",
+     * "Trastorno obsesivo compulsivo",
+     * "Trastorno Psicótico",
      * "Trastorno antisocial".
      */
     private List<String> enfermedadesMentales = new ArrayList<>();
@@ -61,16 +67,16 @@ final class Ingreso {
     /**
      * Tratamientos del paciente en este ingreso.
      * 
-     * Los valores permitidos son: 
-     * "Analgésicos", 
-     * "Antiinflamatorios", 
-     * "Antibióticos", 
-     * "Sueros", 
-     * "Antidiarreicos", 
-     * "Antipsicóticos", 
-     * "Terapia conductual", 
-     * "Estabilizadores del ánimo", 
-     * "Antidepresivos", 
+     * Los valores permitidos son:
+     * "Analgésicos",
+     * "Antiinflamatorios",
+     * "Antibióticos",
+     * "Sueros",
+     * "Antidiarreicos",
+     * "Antipsicóticos",
+     * "Terapia conductual",
+     * "Estabilizadores del ánimo",
+     * "Antidepresivos",
      * "Medicación anticonvulsiva".
      */
     private List<String> tratamientos = new ArrayList<>();
@@ -86,12 +92,12 @@ final class Ingreso {
     /**
      * Especialidad requerida para el paciente en este ingreso.
      * 
-     * Los valores permitidos son: 
-     * "Psiquiatría", 
-     * "Neurología", 
-     * "Rehabilitación", 
-     * "Traumatología", 
-     * "Medicina General", 
+     * Los valores permitidos son:
+     * "Psiquiatría",
+     * "Neurología",
+     * "Rehabilitación",
+     * "Traumatología",
+     * "Medicina General",
      * "Cuidados Intensivos".
      */
     private String especialidad;
@@ -100,86 +106,117 @@ final class Ingreso {
      * Lista de las enfermedades mentales validas.
      */
     private final static List<String> ENFERMEDADES_MENTALES_VALIDAS = List.of(
-        "Esquizofrenia", 
-        "TDAH", 
-        "Trastorno bipolar", 
-        "Trastorno obsesivo compulsivo", 
-        "Trastorno Psicótico", 
-        "Trastorno antisocial"
-    );
+            "Esquizofrenia",
+            "TDAH",
+            "Trastorno bipolar",
+            "Trastorno obsesivo compulsivo",
+            "Trastorno Psicótico",
+            "Trastorno antisocial");
 
     /**
      * Lista de los tratamientos validos.
      */
     private final static List<String> TRATAMIENTOS_VALIDAS = List.of(
-        "Analgésicos", 
-        "Antiinflamatorios", 
-        "Antibióticos", 
-        "Sueros", 
-        "Antidiarreicos", 
-        "Antipsicóticos", 
-        "Terapia conductual", 
-        "Estabilizadores del ánimo", 
-        "Antidepresivos", 
-        "Medicación anticonvulsiva"
-    );
+            "Analgésicos",
+            "Antiinflamatorios",
+            "Antibióticos",
+            "Sueros",
+            "Antidiarreicos",
+            "Antipsicóticos",
+            "Terapia conductual",
+            "Estabilizadores del ánimo",
+            "Antidepresivos",
+            "Medicación anticonvulsiva");
 
     /**
-     * Lista de las especialidades validas, ordenados de más importante a más general.
+     * Lista de las especialidades validas, ordenados de más importante a más
+     * general.
      */
     private final static List<String> ESPECIALIDADES_VALIDAS = List.of(
-        "Cuidados Intensivos",
-        "Neurología",
-        "Traumatología",
-        "Rehabilitación",
-        "Psiquiatría",
-        "Medicina General"
-    );
+            "Cuidados Intensivos",
+            "Neurología",
+            "Traumatología",
+            "Rehabilitación",
+            "Psiquiatría",
+            "Medicina General");
 
     /**
-     * Lista de cada enfermedad mental y discapacidad a que especialidad está asociada.
+     * Lista de cada enfermedad mental y discapacidad a que especialidad está
+     * asociada.
      */
     private static final Map<String, String> ESPECIALIDAD_POR_CONDICION = Map.ofEntries(
-        // Enfermedades mentales
-        Map.entry("Esquizofrenia",                 "Psiquiatría"),
-        Map.entry("TDAH",                          "Psiquiatría"),
-        Map.entry("Trastorno bipolar",             "Psiquiatría"),
-        Map.entry("Trastorno obsesivo compulsivo", "Psiquiatría"),
-        Map.entry("Trastorno Psicótico",           "Psiquiatría"),
-        Map.entry("Trastorno antisocial",          "Psiquiatría")
-    );
+            // Enfermedades mentales
+            Map.entry("Esquizofrenia", "Psiquiatría"),
+            Map.entry("TDAH", "Psiquiatría"),
+            Map.entry("Trastorno bipolar", "Psiquiatría"),
+            Map.entry("Trastorno obsesivo compulsivo", "Psiquiatría"),
+            Map.entry("Trastorno Psicótico", "Psiquiatría"),
+            Map.entry("Trastorno antisocial", "Psiquiatría"));
 
     /*
-    * Atributo para almacenar las rondas médicas
-    */
+     * Atributo para almacenar las rondas médicas
+     */
     private List<String> rondasMedicas = new ArrayList<>();
 
     /**
-     * Crea un nuevo ingreso con la información referente al estado del paciente en este ingreso especificada
+     * Unidad en la que el paciente esta vinculado/asignado en este ingreso
+     */
+    private proyectoreto.unidad.Unidad unidadVinculada;
+
+    /**
+     * Habitación en la que el paciente esta vinculado/asignado en este ingreso
+     */
+    private proyectoreto.unidad.Habitacion habitacionVinculada;
+
+    /**
+     * Cama en la que el paciente esta vinculado/asignado en este ingreso
+     */
+    private proyectoreto.unidad.Cama camaVinculada;
+
+    /**
+     * Alta médica asociada a este ingreso.
+     * Representa el momento en que el ingreso termina.
+     * Puede ser null si el paciente aún no ha sido dado de alta.
+     */
+    private Alta alta;
+
+    /**
+     * Lista de observaciones registradas durante este ingreso.
+     * Solo se pueden registrar notas si el ingreso se encuentra activo.
+     */
+    private List<NotaEvolucion> notasEvolucion = new ArrayList<>();
+
+    /**
+     * Crea un nuevo ingreso con la información referente al estado del paciente en
+     * este ingreso especificada
      * por parametro.
      * 
-     * @param fechaIngreso         fecha en la que el paciente fue ingresado, 
-     *                             no acepta null, 
+     * @param fechaIngreso         fecha en la que el paciente fue ingresado,
+     *                             no acepta null,
      *                             solo se acepta valores permitidos
      * 
-     * @param enfermedadesMentales lista de enfermedades mentales del paciente en este ingreso, 
+     * @param enfermedadesMentales lista de enfermedades mentales del paciente en
+     *                             este ingreso,
      *                             solo se acepta valores permitido
      * 
-     * @param discapacidades       marca si el paciente tiene o no discapacidad, true si tiene, false no tiene
+     * @param discapacidades       marca si el paciente tiene o no discapacidad,
+     *                             true si tiene, false no tiene
      * 
      * @throws NullPointerException     si 'fechaIngreso' se le pasa null
-     * @throws IllegalArgumentException si a 'enfermedadesMentales' se le pasa una lista con algún valor no valido
+     * @throws IllegalArgumentException si a 'enfermedadesMentales' se le pasa una
+     *                                  lista con algún valor no valido
      */
     Ingreso(LocalDate fechaIngreso, List<String> enfermedadesMentales, boolean discapacidad) {
         if (fechaIngreso == null) {
             throw new NullPointerException("Parametro 'fechaIngreso' no acepta null.");
         }
 
-        // Se comprueba que cada valor de la lista 'enfermedadesMentales' tenga una cadena valida
+        // Se comprueba que cada valor de la lista 'enfermedadesMentales' tenga una
+        // cadena valida
         for (String enfermedadMental : enfermedadesMentales) {
             if (!ENFERMEDADES_MENTALES_VALIDAS.contains(enfermedadMental)) {
-                throw new IllegalArgumentException
-                ("Parametro 'enfermedadesMentales' se le paso una enfermedad no valida.");
+                throw new IllegalArgumentException(
+                        "Parametro 'enfermedadesMentales' se le paso una enfermedad no valida.");
             }
         }
 
@@ -192,48 +229,52 @@ final class Ingreso {
     }
 
     /*
-     * Devuelve una cadena de cual seria la gravedad correcta del paceinte en función de su condición.
+     * Devuelve una cadena de cual seria la gravedad correcta del paceinte en
+     * función de su condición.
      */
-    private String gravedadCorrecta () {
+    private String gravedadCorrecta() {
         if (enfermedadesMentales.size() > 3) {
             return "Alto";
-        }
-        else if (discapacidad == true || enfermedadesMentales.size() > 2) {
+        } else if (discapacidad == true || enfermedadesMentales.size() > 2) {
             return "Medio";
-        }
-        else {
+        } else {
             return "Bajo";
         }
     }
 
     /*
-    * Devuelve la especialidad más adecuada para el paciente en función de sus
-    * enfermedades mentales y si tiene discapacidad.
-    * 
-    * Se recogen todas las especialidades requeridas por sus condiciones y se
-    * devuelve la más importante según el orden de ESPECIALIDADES_VALIDAS.
-    */
+     * Devuelve la especialidad más adecuada para el paciente en función de sus
+     * enfermedades mentales y si tiene discapacidad.
+     * 
+     * Se recogen todas las especialidades requeridas por sus condiciones y se
+     * devuelve la más importante según el orden de ESPECIALIDADES_VALIDAS.
+     */
     private String especialidadCorrecta() {
-        //Lista donde méteremos las especialidades del paciente, de las que elegiremos una
+        // Lista donde méteremos las especialidades del paciente, de las que elegiremos
+        // una
         List<String> especialidadesPaciente = new ArrayList<>();
 
-        // Añadimos a la lista de especialidades una especialidad por enfermedad, sin repetirlas
+        // Añadimos a la lista de especialidades una especialidad por enfermedad, sin
+        // repetirlas
         for (String enfermedad : enfermedadesMentales) {
             String especialidad = ESPECIALIDAD_POR_CONDICION.get(enfermedad);
 
-            // Se comprueba que la especialida relacioanda a está enfermedad no se haya guardado antes
+            // Se comprueba que la especialida relacioanda a está enfermedad no se haya
+            // guardado antes
             if (!especialidadesPaciente.contains(especialidad)) {
                 especialidadesPaciente.add(especialidad);
             }
         }
 
-        // Si tiene discapacidad, tambien guardamos Rehabilitación en la lista de especialidades
+        // Si tiene discapacidad, tambien guardamos Rehabilitación en la lista de
+        // especialidades
         if (discapacidad) {
             especialidadesPaciente.add("Rehabilitación");
         }
 
         // Devolvemos la especialidad más importante según ESPECIALIDADES_VALIDAS
-        // Cómo la lista ESPECIALIDADES_VALIDAS ya está ordenada, encontrara primero la más importante
+        // Cómo la lista ESPECIALIDADES_VALIDAS ya está ordenada, encontrara primero la
+        // más importante
         for (String especialidadMasImportante : ESPECIALIDADES_VALIDAS) {
             if (especialidadesPaciente.contains(especialidadMasImportante)) {
                 return especialidadMasImportante;
@@ -288,25 +329,29 @@ final class Ingreso {
     /**
      * Establece las enfermedades mentales del paciente.
      * 
-     * Al cambiar las enfermedades, la gravedad y la especialidad se vuelven a reasignar.
+     * Al cambiar las enfermedades, la gravedad y la especialidad se vuelven a
+     * reasignar.
      * 
-     * @param enfermedadesMentales nueva lista de enfermedades mentales del paciente,
+     * @param enfermedadesMentales nueva lista de enfermedades mentales del
+     *                             paciente,
      *                             solo se aceptan valores permitidos
      * 
-     * @throws IllegalArgumentException si alguna enfermedad de la lista no es valido
+     * @throws IllegalArgumentException si alguna enfermedad de la lista no es
+     *                                  valido
      */
     void setEnfermedadesMentales(List<String> enfermedadesMentales) {
-        // Se comprueba que cada valor de la lista 'enfermedadesMentales' tenga una cadena valida
+        // Se comprueba que cada valor de la lista 'enfermedadesMentales' tenga una
+        // cadena valida
         for (String enfermedadMental : enfermedadesMentales) {
             if (!ENFERMEDADES_MENTALES_VALIDAS.contains(enfermedadMental)) {
-                throw new IllegalArgumentException
-                ("Parametro 'enfermedadesMentales' se le paso una enfermedad no valida.");
+                throw new IllegalArgumentException(
+                        "Parametro 'enfermedadesMentales' se le paso una enfermedad no valida.");
             }
         }
 
         this.enfermedadesMentales = enfermedadesMentales;
 
-        //Se reasigna la gravedad y especialidad
+        // Se reasigna la gravedad y especialidad
         this.gravedad = gravedadCorrecta();
         this.especialidad = especialidadCorrecta();
     }
@@ -330,7 +375,7 @@ final class Ingreso {
     void setDiscapacidad(boolean discapacidad) {
         this.discapacidad = discapacidad;
 
-        //Se reasigna la gravedad y especialidad
+        // Se reasigna la gravedad y especialidad
         this.gravedad = gravedadCorrecta();
         this.especialidad = especialidadCorrecta();
     }
@@ -347,15 +392,17 @@ final class Ingreso {
     /**
      * Establece los tratamientos del paciente.
      * 
-     * @param tratamientos nueva lista de tratamientos del paciente, solo se aceptan valores permitidos
+     * @param tratamientos nueva lista de tratamientos del paciente, solo se aceptan
+     *                     valores permitidos
      * 
-     * @throws IllegalArgumentException si algún tratamiento de la lista no es válido
+     * @throws IllegalArgumentException si algún tratamiento de la lista no es
+     *                                  válido
      */
     void setTratamientos(List<String> tratamientos) {
         for (String tratamiento : tratamientos) {
             if (!TRATAMIENTOS_VALIDAS.contains(tratamiento)) {
                 throw new IllegalArgumentException(
-                    "Parametro 'tratamientos' se le paso un tratamiento no valido.");
+                        "Parametro 'tratamientos' se le paso un tratamiento no valido.");
             }
         }
 
@@ -363,9 +410,10 @@ final class Ingreso {
     }
 
     /*
-    * Método que permite guardar las rondas médicas dentro del atributo rondasMedicas
-    */
-    public void setNuevaRondaMedicaDiaria(){
+     * Método que permite guardar las rondas médicas dentro del atributo
+     * rondasMedicas
+     */
+    public void setNuevaRondaMedicaDiaria() {
         this.rondasMedicas.add("Ronda médica realizada el: " + LocalDate.now());
     }
 
@@ -387,6 +435,34 @@ final class Ingreso {
         return especialidad;
     }
 
+    proyectoreto.unidad.Unidad getUnidadVinculada() {
+        return unidadVinculada;
+    }
+
+    proyectoreto.unidad.Habitacion geHabitacionVinculada() {
+        return habitacionVinculada;
+    }
+
+    proyectoreto.unidad.Cama getCamaVinculada() {
+        return camaVinculada;
+    }
+
+    Alta getAlta() {
+        return alta;
+    }
+
+    void setAlta(Alta alta) {
+        this.alta = alta;
+    }
+
+    List<NotaEvolucion> getNotasEvolucion() {
+        return notasEvolucion;
+    }
+
+    void setNotasEvolucion(List<NotaEvolucion> notasEvolucion) {
+        this.notasEvolucion = notasEvolucion;
+    }
+
     /**
      * Devuelve una cadena con todos los datos del ingreso.
      * 
@@ -398,15 +474,16 @@ final class Ingreso {
     @Override
     public String toString() {
         return String.format(
-            "Ingreso{activo=%s, fechaIngreso=%s, enfermedadesMentales=%s, " + 
-            "discapacidad=%s, tratamientos=%s, gravedad='%s', especialidad='%s'}",
-            activo,
-            fechaIngreso,
-            enfermedadesMentales,
-            discapacidad,
-            tratamientos,
-            gravedad,
-            especialidad
-        );
+                "Ingreso{activo=%s, fechaIngreso=%s, enfermedadesMentales=%s, " +
+                        "discapacidad=%s, tratamientos=%s, gravedad='%s', especialidad='%s', tieneAlta=%s, cantidadNotas=%d}",
+                activo,
+                fechaIngreso,
+                enfermedadesMentales,
+                discapacidad,
+                tratamientos,
+                gravedad,
+                especialidad,
+                (alta != null),
+                notasEvolucion.size());
     }
 }

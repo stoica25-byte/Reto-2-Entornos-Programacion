@@ -1,4 +1,4 @@
-package edu.grupo2.proyectoreto.unidad;
+package proyectoreto.unidad;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,12 +7,13 @@ import java.util.List;
 /**
  * Representa una Habitación en el sistema hospitalario.
  * 
- * Las habitaciones, junto con las camas, es un elemento que usan las unidades para organizar su 
+ * Las habitaciones, junto con las camas, es un elemento que usan las unidades
+ * para organizar su
  * espacio para los pacientes.
  * 
  * @author Wilson
  */
-public final class Habitacion implements Serializable{
+public final class Habitacion implements Serializable {
 
     /**
      * Camas de la habitación.
@@ -30,10 +31,10 @@ public final class Habitacion implements Serializable{
         // Comprobamos que minimo se cree 1 cama en la habitación
         if (numeroCamas < 1) {
             throw new IllegalArgumentException("Parametro 'numeroCamas' no acepta valores menores a 1.");
-        } 
+        }
 
         // Se crea el numero de camas que se especifique
-        for(int i = 1; i <= numeroCamas; i++) {
+        for (int i = 1; i <= numeroCamas; i++) {
             camas.add(new Cama());
         }
     }
