@@ -1,5 +1,7 @@
 package proyectoreto.personal;
 
+import java.io.Serializable;
+
 import proyectoreto.paciente.Paciente;
 import proyectoreto.unidad.Unidad;
 
@@ -10,7 +12,7 @@ import proyectoreto.unidad.Unidad;
  *
  * @author Diana
  */
-public class Medico extends PersonalDeSalud implements GestionUbicacion {
+public class Medico extends PersonalDeSalud implements GestionUbicacion , Serializable {
     /**
      * Constructor público por defecto (+)
      * Llama al constructor de la superclase PersonalDeSalud para inicializar

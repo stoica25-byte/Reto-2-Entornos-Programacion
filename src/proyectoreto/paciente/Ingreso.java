@@ -2,6 +2,8 @@
 
 package proyectoreto.paciente;
 
+import java.io.Serializable;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +19,7 @@ import java.util.Map;
  * 
  * @author Wilson
  */
-final class Ingreso {
+final class Ingreso implements Serializable {
     /**
      * Estado del ingreso del paciente.
      * 

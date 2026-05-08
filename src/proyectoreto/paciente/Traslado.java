@@ -2,6 +2,8 @@
 
 package proyectoreto.paciente;
 
+import java.io.Serializable;
+
 /**
  * Representa el traslado de un paciente a otro hospital.
  * 
@@ -12,7 +14,7 @@ package proyectoreto.paciente;
  * @author Jaime
  * @author Wilson
  */
-final class Traslado {
+final class Traslado implements Serializable {
     /**
      * Nombre del hospital al cual se trasladara al paciente.
      * 

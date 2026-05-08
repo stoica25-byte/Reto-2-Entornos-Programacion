@@ -1,5 +1,7 @@
 package proyectoreto.unidad;
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 
 // TODO: Que Wilson Revise y corrija lo que hizo Jaime
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 /**
  * @author Jaime
  */
-public class Unidad {
+public class Unidad implements Serializable {
 
     private String nombreUnidad;
     private double porcentajeCamasDisponibles;

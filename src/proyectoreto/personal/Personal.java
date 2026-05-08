@@ -1,5 +1,7 @@
 package proyectoreto.personal;
 
+import java.io.Serializable;
+
 /**
  * Clase abstracta que representa a cualquier empleado del hospital.
  * Sirve como clase base (superclase) para los diferentes roles específicos
@@ -9,7 +11,7 @@ package proyectoreto.personal;
  * @author Alex
  * @version 1.0 (28/04/2026)
  */
-public abstract class Personal {
+public abstract class Personal implements Serializable {
     /**
      * El nombre del empleado
      */

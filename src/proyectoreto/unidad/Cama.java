@@ -1,11 +1,13 @@
 package proyectoreto.unidad;
 
+import java.io.Serializable;
+
 import proyectoreto.paciente.Paciente;
 
 /**
  * Clase que representa una Cama en el sistema hospitalario.
  */
-public class Cama {
+public class Cama implements Serializable {
     private boolean disponibilidad;
     private Paciente pacienteAsignado;
 

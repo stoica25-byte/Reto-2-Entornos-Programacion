@@ -2,6 +2,8 @@
 
 package proyectoreto.paciente;
 
+import java.io.Serializable;
+
 import java.time.LocalDate;
 
 /**
@@ -11,7 +13,7 @@ import java.time.LocalDate;
  * @author Jaime
  * @author Wilson
  */
-final class NotaEvolucion {
+final class NotaEvolucion implements Serializable {
 
     /**
      * Fecha en la que se escibio la nota de evolución.

@@ -1,5 +1,7 @@
 package proyectoreto.paciente;
 
+import java.io.Serializable;
+
 import proyectoreto.personal.PersonalDeSalud;
 import java.time.LocalDate;
 
@@ -13,7 +15,7 @@ import java.time.LocalDate;
  * y solo se puede realizar si el paciente tiene su último ingreso activo
  * * @author Grupo 2
  */
-public class RondaMedicaDiaria {
+public class RondaMedicaDiaria implements Serializable {
 
     /**
      * El paciente al que se le realiza la ronda médica

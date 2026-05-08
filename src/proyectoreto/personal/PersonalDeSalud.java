@@ -1,5 +1,7 @@
 package proyectoreto.personal;
 
+import java.io.Serializable;
+
 import proyectoreto.paciente.Paciente;
 
 /**
@@ -7,7 +9,7 @@ import proyectoreto.paciente.Paciente;
  * Hereda de la clase general Personal
  * Es la base para Médicos y Enfermeros
  */
-public abstract class PersonalDeSalud extends Personal {
+public abstract class PersonalDeSalud extends Personal  implements Serializable {
     // Visibilidad protected para que solo las clases hijas lo usen
     protected PersonalDeSalud(String nombre, String apellido) {
         super(nombre, apellido); // Llama al constructor de la clase padre (Personal)
